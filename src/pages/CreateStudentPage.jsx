@@ -7,13 +7,15 @@ const CreateStudentPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const BASE_API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/students', {
+      const response = await fetch(`${BASE_API_URL}/students`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
