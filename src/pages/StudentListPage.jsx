@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import StudentsList from '../components/StudentsList';
 import StudentNotes from '../components/StudentsNotes';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+
 const StudentListPage = () => {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const BASE_API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
   useEffect(() => {
     fetchStudents();
@@ -16,7 +18,7 @@ const StudentListPage = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await fetch(`${BASE_API_URL}/students`);
+      const response = await fetch(`${API_BASE_URL}/students`);
       if (!response.ok) throw new Error('Failed to fetch students');
       const data = await response.json();
       setStudents(data || []);
@@ -30,7 +32,7 @@ const StudentListPage = () => {
 
   const deleteStudent = async (id) => {
     try {
-      const response = await fetch(`${BASE_API_URL}/students/${id}`, { method: 'DELETE' });
+      const response = await fetch(`${API_BASE_URL}/students/${id}`, { method: 'DELETE' });
       if (!response.ok) throw new Error('Failed to delete student');
       setStudents(students.filter(student => student.id !== id));
       if (selectedStudent?.student?.id === id) {
@@ -44,7 +46,7 @@ const StudentListPage = () => {
 
   const fetchStudentDetails = async (id) => {
     try {
-      const response = await fetch(`${BASE_API_URL}/students/${id}`);
+      const response = await fetch(`${API_BASE_URL}/students/${id}`);
       if (!response.ok) throw new Error('Failed to fetch student details');
       const data = await response.json();
       setSelectedStudent(data);
@@ -58,7 +60,7 @@ const StudentListPage = () => {
     if (!selectedStudent?.student?.id) return;
     
     try {
-      const response = await fetch(`${BASE_API_URL}/students/${selectedStudent.student.id}/notes`, {
+      const response = await fetch(`${API_BASE_URL}/students/${selectedStudent.student.id}/notes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

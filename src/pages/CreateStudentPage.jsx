@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 const CreateStudentPage = () => {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const BASE_API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +17,7 @@ const CreateStudentPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${BASE_API_URL}/students`, {
+      const response = await fetch(`${API_BASE_URL}/students`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -12,6 +12,7 @@
     "npm:eslint@^9.11.1": "9.17.0",
     "npm:globals@^15.9.0": "15.13.0",
     "npm:postcss@^8.4.49": "8.4.49",
+    "npm:process@~0.11.10": "0.11.10",
     "npm:react-dom@^18.3.1": "18.3.1_react@18.3.1",
     "npm:react-router-dom@^7.0.2": "7.0.2_react@18.3.1_react-dom@18.3.1__react@18.3.1",
     "npm:react@^18.3.1": "18.3.1",
@@ -1748,6 +1749,9 @@
     "prelude-ls@1.2.1": {
       "integrity": "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="
     },
+    "process@0.11.10": {
+      "integrity": "sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A=="
+    },
     "prop-types@15.8.1": {
       "integrity": "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==",
       "dependencies": [
@@ -2324,6 +2328,7 @@
         "npm:eslint@^9.11.1",
         "npm:globals@^15.9.0",
         "npm:postcss@^8.4.49",
+        "npm:process@~0.11.10",
         "npm:react-dom@^18.3.1",
         "npm:react-router-dom@^7.0.2",
         "npm:react@^18.3.1",
